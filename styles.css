@@ -1,0 +1,242 @@
+/* ----- BASIC RESET -----*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+/* ----- MAIN BODY STYLES ----- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #dbe9f4, #fdfcfc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    touch-action: manipulation;
+}
+/* ----- MAIN CONTAINER ----- */
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+/* ----- HANGMAN IMAGE ----- */
+.hangman-box img {
+    width: 200px;
+    transition: transform 0.3s ease-in-out;
+}
+/* ----- GAME CONTROLS ----- */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+/* ----- BUTTONS AND SELECT STYLES ----- */
+.btn, .keyboard button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+.btn:hover, .keyboard button:hover {
+    background: #2980b9;
+}
+/* ----- TEXT DISPLAY STYLES ----- */
+.hint-text, .score-text, .timer-text, .guesses-text {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+/* ----- WORD DISPLAY ----- */
+.word-display {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+/* ----- LETTER STYLES ----- */
+.word-display .letter {
+    border-bottom: 3px solid #333;
+    width: 24px;
+    height: 36px;
+    font-size: 28px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+/* ----- KEYBOARD LAYOUT ----- */
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    gap: 8px;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+/* ----- DISABLED KEYBOARD BUTTONS ----- */
+.keyboard button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+/* ----- GAME OVER MODAL ----- */
+.game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+/* ----- SHOW GAME OVER MODAL ----- */
+.game-modal.show {
+    display: flex;
+}
+/* ----- GAME OVER MODAL CONTENT ----- */
+.game-modal .content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+/* ----- GAME OVER MODAL IMAGE ----- */
+.game-modal img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+/* ----- PLAY AGAIN BUTTON ----- */
+.play-again {
+    background: #27ae60;
+    width: 100%;
+    margin-top: 15px;
+}
+.play-again:hover {
+    background: #1e8449;
+}
+/* ----- RESPONSIVE DESIGN ----- */
+@media (max-width: 600px) {
+    /* Mobile Devices */
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    .hangman-box img {
+        width: 150px;
+    }
+    .word-display .letter {
+        width: 20px;
+        height: 30px;
+        font-size: 24px;
+    }
+    .keyboard {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+    .keyboard button {
+        padding: 8px;
+        font-size: 14px;
+        min-width: 35px;
+        height: 35px;
+    }
+    .hint-text, .score-text, .timer-text, .guesses-text {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+    .game-modal .content {
+        padding: 20px;
+    }
+    .game-modal img {
+        width: 80px;
+    }
+    .game-modal h4 {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    .game-modal p {
+        font-size: 14px;
+    }
+}
+@media (max-width: 360px) {
+    /* Small Mobile Devices */
+    .container {
+        padding: 10px;
+    }
+    .hangman-box img {
+        width: 120px;
+    }
+    .word-display .letter {
+        width: 18px;
+        height: 28px;
+        font-size: 20px;
+    }
+    .keyboard {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .keyboard button {
+        padding: 6px;
+        font-size: 12px;
+        min-width: 30px;
+        height: 30px;
+    }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+    /* Landscape Mode */
+    .container {
+        padding: 10px;
+        max-width: 800px;
+    }
+    .hangman-box img {
+        width: 100px;
+    }
+    .keyboard {
+        grid-template-columns: repeat(13, 1fr);
+    }
+    .word-display {
+        margin: 10px 0;
+    }
+}
+/* ----- FOOTER STYLES ----- */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+.footer span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.footer i {
+    font-size: 20px;
+}

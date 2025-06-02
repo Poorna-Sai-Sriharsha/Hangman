@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <!-- Mobile viewport settings for better mobile experience -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>Hangman Game</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Game Container -->
+    <div class="container">
+        <!-- Game Controls -->
+        <div class="controls">
+            <div class="difficulty-text">Difficulty: <b id="current-difficulty">Medium</b></div>
+        </div>
+        <!-- Hangman Image -->
+        <div class="hangman-box">
+            <img src="Hangman_Assets/hangman-0.svg" alt="Hangman" id="hangman-image" />
+        </div>
+        <!-- Game Stats -->
+        <div class="timer-text">Time left: <b id="timer">60</b>s</div>
+        <div class="score-text">Score: <b id="score">0</b></div>
+        <div class="hint-text">Hint: <b></b></div>
+        <div class="word-display"></div>
+        <div class="guesses-text">Wrong guesses: <b>0 / 6</b></div>
+        <div class="keyboard"></div>
+    </div>
+    <!-- Game Over Modal -->
+    <div class="game-modal">
+        <div class="content">
+            <img src="" alt="Result Image" />
+            <h4></h4>
+            <p></p>
+            <button class="btn play-again">Play Again</button>
+        </div>
+    </div>
+    <!-- Footer with social links -->
+    <div class="footer">
+        <span>© 2025 Hangman | Developed by Poorna Sai Sriharsha
+            <a href="https://www.linkedin.com/in/poorna-sai-sriharsha-perina/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin" style="color: #0A66C2;"></i>
+            </a>
+            <a href="https://github.com/Poorna-Sai-Sriharsha" target="_blank" title="GitHub">
+                <i class="fab fa-github" style="color: #181717;"></i>
+            </a>
+        </span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
